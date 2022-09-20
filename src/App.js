@@ -2,11 +2,9 @@ import './App.css';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
-import Navbar from './components/Navbar';
 import { Container } from 'react-bootstrap';
 import { AuthProvider } from './contexts/AuthContext';
-import { BrowserRouter, BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import NavbarComponent from './components/NavbarComponent';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 function App() {
 
