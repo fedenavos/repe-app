@@ -1,0 +1,34 @@
+.profile-card-body {
+    color: #5E1D2E;
+    background-color: #E8E6D9;
+}
+
+.profile-card-footer {
+    background-color: #CD6229;
+}
+
+.album {
+    align-items: center;
+}
+
+.main-button {
+    color: white;
+    background-color: #552C72;
+    border: none;
+    border-radius: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.main-button:hover {
+    color: white;
+    background-color: #3c0762;
+    border: none;
+}
+
+.toggle {
+    justify-items: center;
+    margin-bottom: 10px;
+}
