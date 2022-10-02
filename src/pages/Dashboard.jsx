@@ -132,18 +132,6 @@ const Dashboard = () => {
     return (
         <div>
             <HeaderComponent handleLogout={handleLogout} navItem={'friends'}></HeaderComponent>
-            <Card className='mt-5'>
-                <Card.Body className='profile-card-body'>
-                    <h2 className="text-center">Perfil</h2>
-                    <strong>Username:</strong> { userData && userData.username} <br />
-                    <strong>Email:</strong> { userData && userData.email}
-                </Card.Body>
-                {/* <Card.Footer style={{ backgroundColor: "#CD6229"}}>
-                    <div className="w-100 text-center mt-2">
-                        
-                    </div>
-                </Card.Footer> */}
-            </Card>
             {error && <Alert variant="danger">{error}</Alert>}
             {isLoading && 
                 <div className="spinner-container">
@@ -151,6 +139,19 @@ const Dashboard = () => {
                 </div>
             }
             {!isLoading &&
+            <>
+                <Card className='mt-5'>
+                    <Card.Body className='profile-card-body'>
+                        <h2 className="text-center">Perfil</h2>
+                        <strong>Username:</strong> { userData && userData.username} <br />
+                        <strong>Email:</strong> { userData && userData.email}
+                    </Card.Body>
+                    {/* <Card.Footer style={{ backgroundColor: "#CD6229"}}>
+                        <div className="w-100 text-center mt-2">
+                            
+                        </div>
+                    </Card.Footer> */}
+                </Card>
                 <div className='album'> 
                     <div className='sticky'>
                         <div className='toggle'>
@@ -185,6 +186,7 @@ const Dashboard = () => {
                             })
                     }
                 </div>
+            </>
             }
         </div>
     );
