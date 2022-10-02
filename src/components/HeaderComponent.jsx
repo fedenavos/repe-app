@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HeaderComponent = ({handleLogout, navItem}) => {
     return (
-        <Nav className='mt-2 justify-content-center'>
+        <Nav className='mt-4 justify-content-center'>
             <Nav.Item>
                 { navItem === 'dashboard' ?
                     <Nav.Link as={Link} to='/dashboard'>Dashboard</Nav.Link>

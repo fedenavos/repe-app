@@ -49,7 +49,7 @@ const Signup = () => {
 
 
     return (
-        <>
+        <div style={{maxWidth : '400px', minWidth: '400px'}}>
         <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Crear una cuenta</h2>
@@ -80,7 +80,7 @@ const Signup = () => {
       <div className="w-100 text-center mt-2">
         Ya tienes una cuenta? <Link to="/login">Inicia sesión aquí</Link>
       </div>
-      </>
+      </div>
     );
 };
 

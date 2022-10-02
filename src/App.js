@@ -12,7 +12,7 @@ function App() {
   return (
     <AuthProvider>
       <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
-        <div className="w-100" style={{maxWidth : '400px'}}>
+        <div className='w-100 d-flex align-items-center justify-content-center'>
           <Router>
             <Routes>
               {/* <Route path="/" element={<NavbarComponent />} >

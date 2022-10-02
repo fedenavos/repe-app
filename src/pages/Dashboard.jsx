@@ -130,9 +130,9 @@ const Dashboard = () => {
     }
 
     return (
-        <>
+        <div>
             <HeaderComponent handleLogout={handleLogout} navItem={'friends'}></HeaderComponent>
-            <Card className='mb-4 mt-5'>
+            <Card className='mt-5'>
                 <Card.Body className='profile-card-body'>
                     <h2 className="text-center">Perfil</h2>
                     <strong>Username:</strong> { userData && userData.username} <br />
@@ -186,7 +186,7 @@ const Dashboard = () => {
                     }
                 </div>
             }
-        </>
+        </div>
     );
 };
 
