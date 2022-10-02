@@ -23,7 +23,7 @@ const Signup = () => {
         e.preventDefault();
 
         if (passwordRef.current.value !== confirmPasswordRef.current.value) {
-            return setError('Passwords do not match');
+            return setError('Las contraseñas no coinciden');
         } 
 
         setError('');
@@ -39,7 +39,7 @@ const Signup = () => {
               })
           .catch(
             (error) => {
-            setError('Failed to create account');
+            setError('Error al crear la cuenta');
             console.log(error);
           })
           .finally(
@@ -52,7 +52,7 @@ const Signup = () => {
         <>
         <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
+          <h2 className="text-center mb-4">Crear una cuenta</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
@@ -64,11 +64,11 @@ const Signup = () => {
               <Form.Control type="text" ref={usernameRef} required />
             </Form.Group>
             <Form.Group id="password">
-              <Form.Label>Password:</Form.Label>
+              <Form.Label>Contraseña:</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
             <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation:</Form.Label>
+              <Form.Label>Confirma la contraseña:</Form.Label>
               <Form.Control type="password" ref={confirmPasswordRef} required />
             </Form.Group>
             <Button disabled={loading} className="w-100 mt-4" type="submit">
@@ -78,7 +78,7 @@ const Signup = () => {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Login</Link>
+        Ya tienes una cuenta? <Link to="/login">Inicia sesión aquí</Link>
       </div>
       </>
     );

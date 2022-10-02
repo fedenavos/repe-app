@@ -29,6 +29,19 @@
 }
 
 .toggle {
+    height: 100%;
     justify-items: center;
-    margin-bottom: 10px;
+    vertical-align: middle;
+    line-height: 4em;
+    font-size: 18px;
+}
+
+.sticky {
+    position: sticky;
+    background-color: #E8E6D9;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }

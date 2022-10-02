@@ -2,6 +2,7 @@ import './App.css';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
+import FriendDashboard from './pages/FriendDashboard';
 import { Container } from 'react-bootstrap';
 import { AuthProvider } from './contexts/AuthContext';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
@@ -23,6 +24,7 @@ function App() {
               <Route path="/" index element={<Dashboard />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup/>} />
+              <Route path='/friends' element={<FriendDashboard />}/>
               <Route path='*' element={ <Navigate replace to="/"/> }/>
             </Routes>
           </Router>

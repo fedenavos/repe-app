@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 
-const Figu = ({ country, index, value, addFigu, removeFigu }) => {
+const Figu = ({ country, index, value, addFigu, removeFigu, display }) => {
 
     const [style, setStyle] = useState({});
     const [figuValue, setFiguValue] = useState(0);
@@ -36,15 +36,18 @@ const Figu = ({ country, index, value, addFigu, removeFigu }) => {
     }
 
     return (
-        <div className='figu' onClick={handleClick} style={style}>
-            <Col>
-                <Row>
-                    <p className='figu-name'>{country}</p>
-                </Row>
-                <Row>
-                    <p>{index}</p>
-                </Row>
-            </Col>
+        <div className={ display ? 'figu' : 'no-figu' } onClick={handleClick} style={style}>
+            {display &&
+                <Col>
+                    <Row>
+                        <p className='figu-name'>{country}</p>
+                    </Row>
+                    <Row>
+                        <p>{index}</p>
+                    </Row>
+                </Col> 
+            }
+            
         </div>
     );
 };

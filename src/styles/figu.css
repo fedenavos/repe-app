@@ -13,6 +13,19 @@
     cursor: pointer;
 }
 
+.no-figu{
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 20%;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    float: left;
+}
+
 /* Make bold the text */
 .figu-name {
     color: #5E1D2E;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Card, Button, Alert } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Card, Button, Alert, Nav } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import { getUserData, updateUser } from '../db';
 import Country from '../components/Country';
 import '../styles/dashboard.css';
@@ -48,7 +48,7 @@ const Dashboard = () => {
             logout();
             navigate("/login");
         } catch (error) {
-            setError("Failed to logout");
+            setError("Error al cerrar sesión");
         }
     }
 
@@ -79,7 +79,7 @@ const Dashboard = () => {
             setIsLoading(false);
 
         } catch (error) {
-            setError("Failed to Add Cromo");
+            setError("Error al añadir cromo");
             console.log(error);
         }
     }
@@ -108,13 +108,12 @@ const Dashboard = () => {
             setIsLoading(false);
 
         } catch (error) {
-            setError("Failed to Remove Cromo");
+            setError("Error al eliminar cromo");
             console.log(error);
         }
     }
 
     const ToggleRemoveComponent = () => {
-        console.log('Toggle remove mode', removeMode);
         return (
             <i 
                 className={removeMode ? 'bi-toggle-on' : 'bi-toggle-off' }
@@ -122,8 +121,8 @@ const Dashboard = () => {
                     setRemoveMode(!removeMode);
                 }}                     
                 style={{ 
-                    color: removeMode ? 'green' : 'grey', 
-                    fontSize: '2rem', cursor: 'pointer' 
+                    color: removeMode ? 'red' : 'grey',
+                    fontSize: '2rem', cursor: 'pointer', margin: '0 1rem'
                 }}
             ></i>
         )
@@ -131,30 +130,43 @@ const Dashboard = () => {
 
     return (
         <>
+            <Nav className='mt-2'>
+                <Nav.Item>
+                    <Nav.Link as={Link} to="/friends">Social album</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <button className='main-button' onClick={handleLogout}>Cerrar sesión</button>
+                </Nav.Item>
+            </Nav>
             <Card className='mb-4 mt-5'>
                 <Card.Body className='profile-card-body'>
-                    <h2 className="text-center">Profile</h2>
+                    <h2 className="text-center">Perfil</h2>
                     <strong>Username:</strong> { userData && userData.username} <br />
                     <strong>Email:</strong> { userData && userData.email}
                 </Card.Body>
-                <Card.Footer style={{ backgroundColor: "#CD6229"}}>
+                {/* <Card.Footer style={{ backgroundColor: "#CD6229"}}>
                     <div className="w-100 text-center mt-2">
-                        <button className='main-button' onClick={handleLogout}>Log out</button>
+                        
                     </div>
-                </Card.Footer>
+                </Card.Footer> */}
             </Card>
             {error && <Alert variant="danger">{error}</Alert>}
-            <div className="w-100 text-center mt-2">
-                <Button variant='link' onClick={handleSort}>Sort by alphabetical order</Button>
-            </div>
             {isLoading && 
                 <div className="spinner-container">
                     <div className="loading-spinner"></div>
                 </div>
             }
             {!isLoading &&
-                <div className='album'>  
-                    <hr></hr>       
+                <div className='album'> 
+                    <div className='sticky'>
+                        <div className='toggle'>
+                            <ToggleRemoveComponent /> <span>Eliminar cromo</span>
+                        </div>   
+                        <div className="w-100 text-center">
+                            <Button variant='link' onClick={handleSort}>Ordenar {sortBy === 'alphabetical' ?  'por grupos' : 'alfabeticamente' }</Button>
+                        </div> 
+                    </div>
+
                     {
                         userData.album && 
                             Object.keys(userData.album)
@@ -168,9 +180,6 @@ const Dashboard = () => {
                             .map((key, index) => {
                                 return (
                                     <>
-                                    <div>
-                                        <ToggleRemoveComponent /> <span className='toggle'>Modo eliminar</span>
-                                    </div>
                                     <Country 
                                         key={index}
                                         figus={userData.album[key]} 

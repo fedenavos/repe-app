@@ -32,7 +32,7 @@ const Login = () => {
                   setLoading(false);
                 });
         } catch (error) {
-            setError('Failed to login');
+            setError('Error al iniciar sesión');
             setLoading(false);
         }
 
@@ -43,7 +43,7 @@ const Login = () => {
         <div >
           <Card>
           <Card.Body>
-            <h2 className="text-center mb-4">Log In</h2>
+            <h2 className="text-center mb-4">Iniciar sesión</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
@@ -61,7 +61,7 @@ const Login = () => {
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
-          Need an account? <Link to="/signup">Sign Up</Link>
+          No tienes una cuenta? <Link to="/signup">Registrate aquí</Link>
         </div>
       </div>
     );

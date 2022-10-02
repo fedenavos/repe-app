@@ -1,6 +1,6 @@
 import { getFirestore } from "firebase/firestore";
 import app from "./firebase.js";
-import { setDoc, doc, getDoc, updateDoc } from "firebase/firestore";
+import { setDoc, doc, getDoc, updateDoc, collection, query, where, getDocs } from "firebase/firestore";
 
 
 const db = getFirestore(app);
@@ -29,6 +29,21 @@ export async function getUserData(uid) {
         } else {
             console.log("No such document!");
         }
+    } catch { alert('Error in getting user data.') }
+}
+
+// Function to get user from firestore
+export async function getUserDataByUserName(username) {
+    const q = query(collection(db, "users"), where("username", "==", username));
+    
+    try {
+        const querySnapshot = await getDocs(q);
+        if (querySnapshot.empty) {
+            console.log("No matching documents.");
+            return;
+        }
+        const docSnap = querySnapshot.docs[0];
+        return docSnap.data();
     } catch { alert('Error in getting user data.') }
 }
 
