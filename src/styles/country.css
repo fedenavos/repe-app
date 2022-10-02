@@ -1,8 +1,5 @@
 .country-name {
+    margin-top: 20px;
     color: #5E1D2E;
     font-weight: bold;
-}
-
-.country {
-    margin-top: 30px;
 }

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Card, Button, Alert, Nav, InputGroup, FormControl, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Card, Button, Alert, InputGroup, FormControl, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { getUserDataByUserName } from '../db';
 import Country from '../components/Country';
+import HeaderComponent from '../components/HeaderComponent';
 import '../styles/dashboard.css';
 import '../styles/spinner.css';
 import { User } from '../models/user.class';
@@ -70,14 +71,7 @@ const FriendDashboard = () => {
 
     return (
         <>
-            <Nav className='mt-3'>
-                <Nav.Item>
-                    <Nav.Link as={Link} to="/">Dashboard</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <button className='main-button' onClick={handleLogout}>Cerrar sesión</button>
-                </Nav.Item>
-            </Nav>
+            <HeaderComponent handleLogout={handleLogout} navItem={'dashboard'}/>
             <Form className='m-4' onSubmit={ getUser }>
                 <InputGroup>
                     <FormControl
@@ -109,8 +103,10 @@ const FriendDashboard = () => {
                 </Card>
             }
             
-            <div className="w-100 text-center mt-2">
-                <Button variant='link' onClick={handleSort}>Ordenar {sortBy === 'alphabetical' ?  'por grupos' : 'alfabeticamente' }</Button>
+            <div className='sticky'>
+                <div className="w-100 text-center mt-2">
+                    <Button variant='link' onClick={handleSort}>Ordenar {sortBy === 'alphabetical' ?  'por grupos' : 'alfabeticamente' }</Button>
+                </div>
             </div>
             {isLoading && 
                 <div className="spinner-container">

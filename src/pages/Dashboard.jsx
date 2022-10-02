@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Card, Button, Alert, Nav } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Card, Button, Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { getUserData, updateUser } from '../db';
 import Country from '../components/Country';
 import '../styles/dashboard.css';
 import '../styles/spinner.css';
+import HeaderComponent from '../components/HeaderComponent';
 
 
 const Dashboard = () => {
@@ -130,14 +131,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <Nav className='mt-2'>
-                <Nav.Item>
-                    <Nav.Link as={Link} to="/friends">Social album</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <button className='main-button' onClick={handleLogout}>Cerrar sesión</button>
-                </Nav.Item>
-            </Nav>
+            <HeaderComponent handleLogout={handleLogout} navItem={'friends'}></HeaderComponent>
             <Card className='mb-4 mt-5'>
                 <Card.Body className='profile-card-body'>
                     <h2 className="text-center">Perfil</h2>
