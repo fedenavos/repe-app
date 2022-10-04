@@ -15,12 +15,6 @@ function App() {
         <div className='w-100 d-flex align-items-center justify-content-center'>
           <Router>
             <Routes>
-              {/* <Route path="/" element={<NavbarComponent />} >
-                <Route index element={ <Dashboard /> } />
-                <Route path='login' element={ <Login /> } />
-                <Route path='signup' element={ <Signup /> } />
-                <Route path='*' element={ <Navigate replace to="/"/> }/>
-              </Route> */}
               <Route path="/" index element={<Dashboard />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup/>} />

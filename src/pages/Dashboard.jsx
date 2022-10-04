@@ -140,18 +140,15 @@ const Dashboard = () => {
             }
             {!isLoading &&
             <>
-                <Card className='mt-5'>
-                    <Card.Body className='profile-card-body'>
+                <div className='mt-5'>
+                    <div className='profile-card-body'>
                         <h2 className="text-center">Perfil</h2>
                         <strong>Username:</strong> { userData && userData.username} <br />
-                        <strong>Email:</strong> { userData && userData.email}
-                    </Card.Body>
-                    {/* <Card.Footer style={{ backgroundColor: "#CD6229"}}>
-                        <div className="w-100 text-center mt-2">
-                            
-                        </div>
-                    </Card.Footer> */}
-                </Card>
+                        <strong>Email:</strong> { userData && userData.email} <br /> <br />
+                        <a style={{ textDecoration: "none" }} href='https://www.linkedin.com/in/federico-navos/' target='blank'>Made with <i class="bi bi-heart"></i> by Federico Navós</a>
+                    </div>
+                    <hr></hr>
+                </div>
                 <div className='album'> 
                     <div className='sticky'>
                         <div className='toggle mt-1'>
@@ -174,14 +171,12 @@ const Dashboard = () => {
                             })
                             .map((key, index) => {
                                 return (
-                                    <>
                                     <Country 
                                         key={index}
                                         figus={userData.album[key]} 
                                         country={key}
                                         addFigu={ removeMode ? removeFigurita : addFigurita }
                                     />
-                                    </>
                                 )
                             })
                     }

@@ -11,24 +11,20 @@ const Country = ({ figus, country, addFigu }) => {
     useEffect(() => {
         console.log('Country updated');
         const figusArray = [];
-        let cantFigus = 19;
+        let cantFigus = 29;
         if (country === 'FWC') cantFigus = 29;
         if (country === 'C') cantFigus = 6;
 
         for (let i = 0; i < cantFigus; i++) {
             figusArray.push(
-                <>
                 <Figu key={figus[0]*cantFigus+i} country={country} index={i+1} value={figus[i+1]} addFigu={addFigu} display={true}/>
-                </>
             );
         }
 
         let cantEmpty = (4 - cantFigus % 4);
-        for (let i = 0; i < cantEmpty; i++) {
+        for (let i = 1; i <= cantEmpty; i++) {
             figusArray.push(
-                <>
-                <Figu key={figus[0]*30+i} country={country} index={i+1} value={0} display={false} addFigu={() => {}}/>
-                </>
+                <Figu key={figus[0]*700+i*30} country={country} index={i*30+1} value={0} display={false} addFigu={() => {}}/>
             );
         }
 
