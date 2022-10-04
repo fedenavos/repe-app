@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import '../styles/country.css'
 
 
-const Country = ({ figus, country, addFigu, removeFigu }) => {
+const Country = ({ figus, country, addFigu }) => {
     
     const [figusToShow, setFigusToShow] = useState([]);
 
@@ -18,7 +18,7 @@ const Country = ({ figus, country, addFigu, removeFigu }) => {
         for (let i = 0; i < cantFigus; i++) {
             figusArray.push(
                 <>
-                <Figu key={figus[0]*cantFigus+i} country={country} index={i+1} value={figus[i+1]} addFigu={addFigu} removeFigu={removeFigu} display={true}/>
+                <Figu key={figus[0]*cantFigus+i} country={country} index={i+1} value={figus[i+1]} addFigu={addFigu} display={true}/>
                 </>
             );
         }
@@ -27,18 +27,18 @@ const Country = ({ figus, country, addFigu, removeFigu }) => {
         for (let i = 0; i < cantEmpty; i++) {
             figusArray.push(
                 <>
-                <Figu key={figus[0]*30+i} country={country} index={i+1} value={0} display={false}/>
+                <Figu key={figus[0]*30+i} country={country} index={i+1} value={0} display={false} addFigu={() => {}}/>
                 </>
             );
         }
 
         setFigusToShow(figusArray);
 
-    }, [figus, country, addFigu, removeFigu]);
+    }, [figus, country, addFigu]);
 
     return (
         <div className='country'>
-            <h2 className='country-name'>{country}</h2> 
+            <h2 className='country-name'>{country !== 'C' ? country : 'COCA-COLA'}</h2> 
             { figusToShow }
         </div>
     );

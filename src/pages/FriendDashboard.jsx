@@ -53,6 +53,7 @@ const FriendDashboard = () => {
 
     const getUser = (e) => {
         e.preventDefault();
+        setError("");
         getUserDataByUserName(username).then(
             (data) => {
                 if (data) {
@@ -70,23 +71,25 @@ const FriendDashboard = () => {
     }
 
     return (
-        <>
+        <div>
             <HeaderComponent handleLogout={handleLogout} navItem={'dashboard'}/>
-            <Form className='m-4' onSubmit={ getUser }>
-                <InputGroup>
-                    <FormControl
-                        placeholder="Busca el album de un amigo"
-                        aria-label="Busca el album de un amigo"
-                        aria-describedby="basic-addon2"
-                        onChange={ (e) => setUsername(e.target.value) }
-                    />
-                </InputGroup>
+            <div className="search-bar">    
+                <Form className='m-4' onSubmit={ getUser }>
+                    <InputGroup>
+                        <FormControl
+                            placeholder="Busca el album de un amigo"
+                            aria-label="Busca el album de un amigo"
+                            aria-describedby="basic-addon2"
+                            onChange={ (e) => setUsername(e.target.value) }
+                        />
+                    </InputGroup>
 
-                <button className='w-100 text-center mt-4 main-button' type="submit">Buscar</button>
-            </Form>
-            {!searched && <Alert variant='warning'> Ingrese el nombre de usuario de la persona que queres ver el album </Alert>}
-            
-            {error && <Alert variant="danger">{error}</Alert>}
+                    <button className='w-100 text-center mt-4 main-button' type="submit">Buscar</button>
+                </Form>
+                {!searched && <Alert variant='warning'> Ingrese el nombre de usuario de la persona que queres ver el album </Alert>}
+                
+                {error && <Alert variant="danger">{error}</Alert>}
+            </div>
 
             {userData.username &&
                 <Card className='mb-4 mt-5'>
@@ -104,7 +107,7 @@ const FriendDashboard = () => {
             }
             
             <div className='sticky'>
-                <div className="w-100 text-center mt-2">
+                <div className="w-100 text-center">
                     <Button variant='link' onClick={handleSort}>Ordenar {sortBy === 'alphabetical' ?  'por grupos' : 'alfabeticamente' }</Button>
                 </div>
             </div>
@@ -140,7 +143,7 @@ const FriendDashboard = () => {
                     }
                 </div>
             }
-        </>
+        </div>
     );
 };
 

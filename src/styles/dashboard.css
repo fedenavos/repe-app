@@ -7,6 +7,15 @@
     background-color: #CD6229;
 }
 
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
 .album {
     max-width: 500px;
     width: 100%;
@@ -34,6 +43,7 @@
 .toggle {
     height: 100%;
     justify-items: center;
+    text-align: center;
     vertical-align: middle;
     line-height: 4em;
     font-size: 18px;
@@ -44,7 +54,7 @@
     top: 0;
     width: 100%;
     padding: 10px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 10px;
+    border-radius: 10px;
     background-color: #E8E6D9;
 }

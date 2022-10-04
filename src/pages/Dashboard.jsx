@@ -154,7 +154,7 @@ const Dashboard = () => {
                 </Card>
                 <div className='album'> 
                     <div className='sticky'>
-                        <div className='toggle'>
+                        <div className='toggle mt-1'>
                             <ToggleRemoveComponent /> <span>Eliminar cromo</span>
                         </div>   
                         <div className="w-100 text-center">
