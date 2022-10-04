@@ -154,7 +154,7 @@ const Dashboard = () => {
                         <div className='toggle mt-1'>
                             <ToggleRemoveComponent /> <span>Eliminar cromo</span>
                         </div>   
-                        <div className="w-100 text-center">
+                        <div className="w-100 mt-2 text-center">
                             <Button variant='link' onClick={handleSort}>Ordenar {sortBy === 'alphabetical' ?  'por grupos' : 'alfabeticamente' }</Button>
                         </div> 
                     </div>
