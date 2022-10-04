@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Card, Button, Alert } from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getUserData, updateUser } from '../db';
 import Country from '../components/Country';
