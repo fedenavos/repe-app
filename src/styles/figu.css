@@ -7,10 +7,11 @@
     height: 15vh;
     align-items: center;
     justify-content: center;
-    display: flex;
     text-align: center;
-    float: left;
+    display: flex;
+    float: left; 
     cursor: pointer;
+    /* display: inline-block; */
 }
 
 .no-figu{
@@ -26,7 +27,6 @@
     float: left;
 }
 
-/* Make bold the text */
 .figu-name {
     color: #5E1D2E;
     font-weight: bold;

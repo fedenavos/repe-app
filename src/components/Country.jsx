@@ -11,7 +11,7 @@ const Country = ({ figus, country, addFigu }) => {
     useEffect(() => {
         console.log('Country updated');
         const figusArray = [];
-        let cantFigus = 29;
+        let cantFigus = 19;
         if (country === 'FWC') cantFigus = 29;
         if (country === 'C') cantFigus = 6;
 
